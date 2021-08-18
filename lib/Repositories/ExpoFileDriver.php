@@ -11,7 +11,17 @@ class ExpoFileDriver implements ExpoRepository
      *
      * @var string
      */
-    private $storage = __DIR__.'/../../storage/tokens.json';
+    private $storage;
+    
+     /**
+     * Sets the file path for the file repository.
+     *
+     * @return void
+     */
+    
+    public function __construct() {
+        $this->storage = env('EXPO_STORAGE_PATH', __DIR__.'/../../storage/tokens.json');   
+    }
 
     /**
      * Stores an Expo token with a given identifier
